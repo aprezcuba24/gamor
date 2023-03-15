@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Layout from '../layout';
 
 export default function App() {
   return (
@@ -11,7 +10,7 @@ export default function App() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Layout />
+        <h1>Home</h1>
       </main>
     </>
   )
