@@ -8,8 +8,9 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const [theme, setThemeMode] = useState(lightTheme);
+  const [theme, setThemeMode] = useState(darkTheme);
   const toggleTheme = useCallback(() => setThemeMode(prev => prev === lightTheme ? darkTheme : lightTheme), []);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

@@ -8,12 +8,20 @@ export const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export const lightTheme = {
-  body: '#f1f1f1',
-  text: '#121620'
+export const darkTheme = {
+  body: '#0b1319',
+  text: '#ffffff',
+  menu: {
+    color: '#7d8589',
+    home: '#f4894e',
+  }
 };
 
-export const darkTheme = {
-  body: '#121620',
-  text: '#f1f1f1'
+export const lightTheme = {
+  body: '#ffffff',
+  text: '#2c3033',
+  menu: {
+    color: '#5c6061',
+    home: '#662ab9',
+  }
 };
