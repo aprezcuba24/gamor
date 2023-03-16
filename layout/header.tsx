@@ -11,6 +11,7 @@ import {
   MenuRight,
   RegisterLink
 } from "../styles/header";
+import { MENU, MenuItem } from "./constants";
 
 const Header = () => {
   return (
@@ -20,15 +21,11 @@ const Header = () => {
         <Li>
           <LinkHome href="/">Home</LinkHome>
         </Li>
-        <Li>
-          <Link href="/">Streams</Link>
-        </Li>
-        <Li>
-          <Link href="/">Party</Link>
-        </Li>
-        <Li>
-          <Link href="/">Premium</Link>
-        </Li>
+        {MENU.map(({ label, href }: MenuItem) => (
+          <Li key={label}>
+            <Link href={href}>{label}</Link>
+          </Li>
+        ))}
       </Menu>
       <LogoCenter>Gamor</LogoCenter>
       <MenuRight>
