@@ -1,29 +1,41 @@
 import { memo, useCallback, useState } from "react";
+import ThemeToggle from "../components/ThemeToggle";
 import {
+  HeaderMobile,
   HeaderWrapper,
   Li,
   Link,
   LinkHome,
   LiRegister,
+  Logo,
   LogoCenter,
-  LogoTop,
   Menu,
   MenuRight,
   RegisterLink,
+  ThemeToggleLi,
   Triangle,
 } from "../styles/header";
 import { MENU, MenuItem } from "./constants";
 
-const Header = () => {
+type Props = {
+  isDark: boolean;
+  toggleTheme: () => void;
+};
+
+const Header = ({ isDark, toggleTheme }: Props) => {
   const [open, setOpen] = useState(true);
   const handleToggle = useCallback(() => setOpen(prev => !prev), []);
+  const toggleThemeButton = <ThemeToggle isDark={isDark} onClick={toggleTheme} />;
 
   return (
     <>
-      <LogoTop>
-        Gamor
+      <HeaderMobile>
+        <Logo>
+          Gamor
+        </Logo>
         <Triangle open={open} onClick={handleToggle} />
-      </LogoTop>
+        {toggleThemeButton}
+      </HeaderMobile>
       <HeaderWrapper open={open}>
         <Menu>
           <Li>
@@ -43,6 +55,9 @@ const Header = () => {
           <LiRegister>
             <RegisterLink href="/login">Create account</RegisterLink>
           </LiRegister>
+          <ThemeToggleLi>
+            {toggleThemeButton}
+          </ThemeToggleLi>
         </MenuRight>
       </HeaderWrapper>
     </>

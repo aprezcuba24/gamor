@@ -20,6 +20,7 @@ export const HeaderWrapper = styled.div<OpenCloseProps>`
 export const Triangle = styled.div<OpenCloseProps>`
   width: 0;
   height: 0;
+  margin-top: 10px;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-top: 15px solid ${({ theme }) => theme.menu.color};
@@ -85,12 +86,18 @@ export const LogoCenter = styled(Logo)`
   }
 `;
 
-export const LogoTop = styled(Logo)`
+export const HeaderMobile = styled.div`
   padding: 20px 20px 0px 20px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
   ${MEDIA_QUERY} {
+    display: none;
+  }
+`;
+
+export const ThemeToggleLi = styled(Li)`
+  ${MEDIA_QUERY_MOVILE} {
     display: none;
   }
 `;
