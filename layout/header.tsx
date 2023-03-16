@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback, useState } from "react";
 import {
   HeaderWrapper,
   Li,
@@ -9,34 +9,43 @@ import {
   LogoTop,
   Menu,
   MenuRight,
-  RegisterLink
+  RegisterLink,
+  Triangle,
 } from "../styles/header";
 import { MENU, MenuItem } from "./constants";
 
 const Header = () => {
+  const [open, setOpen] = useState(true);
+  const handleToggle = useCallback(() => setOpen(prev => !prev), []);
+
   return (
-    <HeaderWrapper>
-      <LogoTop>Gamor</LogoTop>
-      <Menu>
-        <Li>
-          <LinkHome href="/">Home</LinkHome>
-        </Li>
-        {MENU.map(({ label, href }: MenuItem) => (
-          <Li key={label}>
-            <Link href={href}>{label}</Link>
+    <>
+      <LogoTop>
+        Gamor
+        <Triangle open={open} onClick={handleToggle} />
+      </LogoTop>
+      <HeaderWrapper open={open}>
+        <Menu>
+          <Li>
+            <LinkHome href="/">Home</LinkHome>
           </Li>
-        ))}
-      </Menu>
-      <LogoCenter>Gamor</LogoCenter>
-      <MenuRight>
-        <Li>
-          <Link href="/login">Sign in</Link>
-        </Li>
-        <LiRegister>
-          <RegisterLink href="/login">Create account</RegisterLink>
-        </LiRegister>
-      </MenuRight>
-    </HeaderWrapper>
+          {MENU.map(({ label, href }: MenuItem) => (
+            <Li key={label}>
+              <Link href={href}>{label}</Link>
+            </Li>
+          ))}
+        </Menu>
+        <LogoCenter>Gamor</LogoCenter>
+        <MenuRight>
+          <Li>
+            <Link href="/login">Sign in</Link>
+          </Li>
+          <LiRegister>
+            <RegisterLink href="/login">Create account</RegisterLink>
+          </LiRegister>
+        </MenuRight>
+      </HeaderWrapper>
+    </>
   )
 };
 

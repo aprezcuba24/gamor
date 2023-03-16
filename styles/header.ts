@@ -2,14 +2,28 @@ import styled from 'styled-components';
 import BaseLink from "next/link";
 import { MEDIA_QUERY, MEDIA_QUERY_MOVILE } from './constants';
 
-export const HeaderWrapper = styled.div`
+type OpenCloseProps = {
+  open: boolean;
+}
+
+export const HeaderWrapper = styled.div<OpenCloseProps>`
   padding: 50px 100px;
   display: flex;
   justify-content: space-between;
   ${MEDIA_QUERY_MOVILE} {
-    display: block;
+    display: ${({ open }) => open ? 'block' : 'none'};
     padding: 20px;
+    padding-top: 0;
   }
+`;
+
+export const Triangle = styled.div<OpenCloseProps>`
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid ${({ theme }) => theme.menu.color};
+  transform: rotate(${({ open }) => open ? 180 : 0}deg) translate(0px, ${({ open }) => open ? 3 : 0}px);
 `;
 
 export const Link = styled(BaseLink)`
@@ -72,8 +86,9 @@ export const LogoCenter = styled(Logo)`
 `;
 
 export const LogoTop = styled(Logo)`
+  padding: 20px 20px 0px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 20px;
   ${MEDIA_QUERY} {
     display: none;
