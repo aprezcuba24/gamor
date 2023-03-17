@@ -3,7 +3,7 @@ import { FormWrapper, FormStyle, Error } from '../../styles/form';
 import { Button } from '../../styles/form';
 import { useSecurityContext } from '../../context/SecurityContext';
 import Link from "next/link";
-import { ChangeValue } from "../types";
+import { ChangeValue } from "../../types";
 import { useRouter } from "next/router";
 
 const initialValue = {
@@ -35,6 +35,7 @@ const Login = () => {
   return (
     <FormWrapper>
       <FormStyle>
+        <h1>Login</h1>
         {error && <Error>{error}</Error>}
         <input onChange={handleChange} name="email" placeholder="email" />
         <input onChange={handleChange} name="password" type="password" />

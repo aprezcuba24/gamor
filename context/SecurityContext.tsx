@@ -2,7 +2,7 @@ import React, { createContext, useContext, ReactNode, useState, useCallback } fr
 
 type Values = {
   isAuthenticated: boolean,
-  handleLogin: (email: string, password: string) => boolean,
+  handleLogin: (email: string, password: string) => Promise<boolean>,
   handleRegister: (email: string, password: string) => void,
   handleLogout: () => void,
 }

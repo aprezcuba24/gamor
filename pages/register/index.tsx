@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { memo, useCallback, useState } from "react";
 import { useSecurityContext } from "../../context/SecurityContext";
 import { Button, Error, FormStyle, FormWrapper } from "../../styles/form";
-import { ChangeValue } from "../types";
+import { ChangeValue } from "../../types";
 
 const initialValue = {
   email: '',
@@ -31,6 +31,7 @@ const Register = () => {
   return (
     <FormWrapper>
       <FormStyle>
+        <h1>Registrar</h1>
         <input onChange={handleChange} name="email" placeholder="email" />
         <input onChange={handleChange} name="password" type="password" />
         {error && <Error>{error}</Error>}
