@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 import BaseLink from "next/link";
-import { MEDIA_QUERY, MEDIA_QUERY_MOVILE } from './constants';
+import { MEDIA_QUERY, MEDIA_QUERY_MOBILE, PADDING_SIDE, PADDING_SIDE_MOBILE } from './constants';
 
 type OpenCloseProps = {
   open: boolean;
 }
 
 export const HeaderWrapper = styled.div<OpenCloseProps>`
-  padding: 50px 100px;
+  padding: 50px ${PADDING_SIDE};
   display: flex;
   justify-content: space-between;
-  ${MEDIA_QUERY_MOVILE} {
+  ${MEDIA_QUERY_MOBILE} {
     display: ${({ open }) => open ? 'block' : 'none'};
-    padding: 20px;
+    padding: ${PADDING_SIDE_MOBILE};
     padding-top: 0;
   }
 `;
@@ -49,13 +49,13 @@ export const Menu = styled.ul`
   List-style: none;
   padding: 0;
   display: flex;
-  ${MEDIA_QUERY_MOVILE} {
+  ${MEDIA_QUERY_MOBILE} {
     display: block;
   }
 `;
 
 export const MenuRight = styled(Menu)`
-  ${MEDIA_QUERY_MOVILE} {
+  ${MEDIA_QUERY_MOBILE} {
     padding-top: 20px;
   }
 `;
@@ -68,7 +68,7 @@ export const Li = styled.li`
 `;
 
 export const LiRegister = styled(Li)`
-  ${MEDIA_QUERY_MOVILE} {
+  ${MEDIA_QUERY_MOBILE} {
     padding-top: 20px;
   }
 `;
@@ -81,7 +81,7 @@ export const Logo = styled.div`
 `;
 
 export const LogoCenter = styled(Logo)`
-  ${MEDIA_QUERY_MOVILE} {
+  ${MEDIA_QUERY_MOBILE} {
     display: none;
   }
 `;
@@ -97,7 +97,7 @@ export const HeaderMobile = styled.div`
 `;
 
 export const ThemeToggleLi = styled(Li)`
-  ${MEDIA_QUERY_MOVILE} {
+  ${MEDIA_QUERY_MOBILE} {
     display: none;
   }
 `;

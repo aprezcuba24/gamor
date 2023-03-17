@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import {Top, TopCell} from '../styles/home';
 
 export default function App() {
   return (
@@ -10,7 +11,11 @@ export default function App() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Home</h1>
+        <Top>
+          <TopCell>aaaa</TopCell>
+          <TopCell>bbbb</TopCell>
+          <TopCell>cccc</TopCell>
+        </Top>
       </main>
     </>
   )

@@ -7,6 +7,10 @@ declare module 'styled-components' {
     menu: {
       color: string;
       home: string;
+    },
+    home: {
+      cellColor: string,
+      cellCenter: string,
     }
   }
 }

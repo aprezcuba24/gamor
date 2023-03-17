@@ -14,6 +14,10 @@ export const darkTheme = {
   menu: {
     color: '#7d8589',
     home: '#f4894e',
+  },
+  home: {
+    cellColor: '#131b21',
+    cellCenter: '#ff8442',
   }
 };
 
@@ -23,5 +27,9 @@ export const lightTheme = {
   menu: {
     color: '#5c6061',
     home: '#662ab9',
+  },
+  home: {
+    cellColor: '#ffffff',
+    cellCenter: '#7814f3',
   }
 };

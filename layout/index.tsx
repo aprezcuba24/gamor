@@ -16,7 +16,6 @@ const Layout = ({ children }: LayoutProps) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header isDark={isDark} toggleTheme={toggleTheme} />
-      <h1>Layout</h1>
       {children}
     </ThemeProvider>
   );
