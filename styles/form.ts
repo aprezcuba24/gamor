@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const LoginWrapper = styled.div`
+export const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-export const LoginForm = styled.div`
+export const FormStyle = styled.div`
   width: 33.333333333%;
   background-color: ${({ theme }) => theme.login.backgroundColor};
   border-radius: 5px;
@@ -33,4 +33,8 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.login.buttonColor};
   border: 1px solid ${({ theme }) => theme.login.buttonColor};
   color: white;
+`;
+
+export const Error = styled.span`
+  color: red;
 `;

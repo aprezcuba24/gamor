@@ -1,35 +1,48 @@
-import { memo, useState, useCallback, ChangeEvent } from "react"
-import {LoginWrapper, LoginForm} from '../../styles/login';
-import { Button } from '../../styles/login';
+import { memo, useState, useCallback } from "react"
+import { FormWrapper, FormStyle, Error } from '../../styles/form';
+import { Button } from '../../styles/form';
 import { useSecurityContext } from '../../context/SecurityContext';
+import Link from "next/link";
+import { ChangeValue } from "../types";
+import { useRouter } from "next/router";
 
 const initialValue = {
   email: '',
   password: ''
 }
 
-type ChangeValue = ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-
 const Login = () => {
   const [state, setState] = useState(initialValue)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const { onLogin } = useSecurityContext();
+  const router = useRouter()
   const handleChange = useCallback(
-    ({ target: { name, value }}: ChangeValue) => setState(prev => ({...prev, [name]: value})),
+    ({ target: { name, value } }: ChangeValue) => setState(prev => ({ ...prev, [name]: value })),
     []
   );
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
+    setError('')
+    setLoading(true)
     const { email, password } = state;
-    onLogin(email, password)
-  }, [state, onLogin])
+    if (await onLogin(email, password)) {
+      return router.push('/')
+    }
+    setLoading(false)
+    setError('Usuario no encontrado');
+  }, [state, onLogin, router])
 
   return (
-    <LoginWrapper>
-      <LoginForm>
+    <FormWrapper>
+      <FormStyle>
+        {error && <Error>{error}</Error>}
         <input onChange={handleChange} name="email" placeholder="email" />
         <input onChange={handleChange} name="password" type="password" />
         <Button onClick={handleSubmit}>Entrar</Button>
-      </LoginForm>
-    </LoginWrapper>
+        {loading && 'Loading...'}
+        <Link href="/register">Register</Link>
+      </FormStyle>
+    </FormWrapper>
   )
 }
 
