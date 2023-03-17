@@ -16,6 +16,7 @@ import {
   Triangle,
 } from "../styles/header";
 import { MENU, MenuItem } from "./constants";
+import {useSecurityContext} from '../context/SecurityContext';
 
 type Props = {
   isDark: boolean;
@@ -23,6 +24,7 @@ type Props = {
 };
 
 const Header = ({ isDark, toggleTheme }: Props) => {
+  const { isAuthenticated, onLogout } = useSecurityContext();
   const [open, setOpen] = useState(true);
   const handleToggle = useCallback(() => setOpen(prev => !prev), []);
   const toggleThemeButton = <ThemeToggle isDark={isDark} onClick={toggleTheme} />;
@@ -50,7 +52,7 @@ const Header = ({ isDark, toggleTheme }: Props) => {
         <LogoCenter>Gamor</LogoCenter>
         <MenuRight>
           <Li>
-            <Link href="/login">Sign in</Link>
+            {isAuthenticated? <Link href="#" onClick={onLogout}>Logout</Link>: <Link href="/login">Sign in</Link>}
           </Li>
           <LiRegister>
             <RegisterLink href="/login">Create account</RegisterLink>
