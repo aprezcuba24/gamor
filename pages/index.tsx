@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import {Top, TopCell, Categories} from '../styles/home';
+import { Top, TopCell, Categories } from '../styles/home';
 import CategoryCard from '../components/CategoryCard';
-
-const categories = [1,2,3,4,5,6,7,8].map(i => ({name: `Category ${i}`}));
+import { useCateogries } from '../hooks/categories';
 
 export default function App() {
+  const [loadingCategories, categories] = useCateogries()
   return (
     <>
       <Head>
@@ -20,7 +20,10 @@ export default function App() {
           <TopCell>cccc</TopCell>
         </Top>
         <Categories>
-          {categories.map((item, i) => <CategoryCard key={i} item={item} i={i} />)}
+          {loadingCategories ?
+            <span>Loaidng...</span> :
+            categories.map((item, i) => <CategoryCard key={i} item={item} i={i} />)
+          }
         </Categories>
       </main>
     </>
