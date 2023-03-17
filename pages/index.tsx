@@ -1,5 +1,8 @@
 import Head from 'next/head'
-import {Top, TopCell} from '../styles/home';
+import {Top, TopCell, Categories} from '../styles/home';
+import CategoryCard from '../components/CategoryCard';
+
+const categories = [1,2,3,4,5,6,7,8].map(i => ({name: `Category ${i}`}));
 
 export default function App() {
   return (
@@ -16,6 +19,9 @@ export default function App() {
           <TopCell>bbbb</TopCell>
           <TopCell>cccc</TopCell>
         </Top>
+        <Categories>
+          {categories.map((item, i) => <CategoryCard key={i} item={item} i={i} />)}
+        </Categories>
       </main>
     </>
   )

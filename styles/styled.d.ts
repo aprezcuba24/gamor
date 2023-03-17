@@ -11,6 +11,10 @@ declare module 'styled-components' {
     home: {
       cellColor: string,
       cellCenter: string,
+    },
+    categoryCard: {
+      borderColor: string,
+      backgroundColor: string,
     }
   }
 }

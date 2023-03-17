@@ -18,6 +18,10 @@ export const darkTheme = {
   home: {
     cellColor: '#131b21',
     cellCenter: '#ff8442',
+  },
+  categoryCard: {
+    borderColor: '#0b1319',
+    backgroundColor: '#131b21',
   }
 };
 
@@ -31,5 +35,9 @@ export const lightTheme = {
   home: {
     cellColor: '#ffffff',
     cellCenter: '#7814f3',
+  },
+  categoryCard: {
+    borderColor: '#0b1319',
+    backgroundColor: '#ffffff',
   }
 };
