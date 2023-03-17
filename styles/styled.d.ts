@@ -15,6 +15,10 @@ declare module 'styled-components' {
     categoryCard: {
       borderColor: string,
       backgroundColor: string,
+    },
+    login: {
+      backgroundColor: string,
+      buttonColor: string,
     }
   }
 }

@@ -22,6 +22,10 @@ export const darkTheme = {
   categoryCard: {
     borderColor: '#0b1319',
     backgroundColor: '#131b21',
+  },
+  login: {
+    backgroundColor: '#ff8442',
+    buttonColor: '#7814f3',
   }
 };
 
@@ -39,5 +43,9 @@ export const lightTheme = {
   categoryCard: {
     borderColor: '#0b1319',
     backgroundColor: '#ffffff',
+  },
+  login: {
+    backgroundColor: '#7814f3',
+    buttonColor: '#ff8442',
   }
 };
